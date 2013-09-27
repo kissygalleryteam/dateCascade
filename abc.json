@@ -1,0 +1,14 @@
+{
+    "name": "dateCascade",
+    "version": "1.0",
+    "desc": "日期级联组件",
+    "cover": "",
+    "tag":"日期",
+    "author": {
+        "name": "函谷",
+        "email": "hangu.mh@taobao.com",
+        "page": ""
+    },
+    "type": "kissy-gallery",
+    "type-url": "http://gallery.kissyui.com/guide"
+}
