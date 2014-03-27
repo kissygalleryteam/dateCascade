@@ -23,7 +23,7 @@ KISSY.add(function (S, Base, DOM, Event) {
     function DateCascade(comConfig) {
         //调用父类构造函数
         DateCascade.superclass.constructor.call(this, comConfig);
-        this.initializer();
+        this.init();
     }
     S.extend(DateCascade, Base, /** @lends DateCascade.prototype*/{
     	// 日期配置
@@ -31,7 +31,7 @@ KISSY.add(function (S, Base, DOM, Event) {
 		/**
 		 * 初始化
 		 */
-		initializer: function() {
+		init: function() {
 			var nodeYear = this.get('nodeYear'), nodeMonth = this.get('nodeMonth'), nodeDay = this.get('nodeDay'),
 				ds = this.get('dateStart'), de = this.get('dateEnd'), df = this.get('dateDefault'), y, m;
 			if (!(nodeYear && nodeMonth && nodeDay)) {     // 只要有一个节点即可
