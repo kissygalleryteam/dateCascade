@@ -14,8 +14,9 @@ S.use('gallery/dateCascade/1.0/index', function (S, DateCascade) {
     	nodeYear: '#year',
     	nodeMonth: '#month',
      	nodeDay: '#day',
-     	dateStart: '1900-01-01',
-     	dateDefault: '1990-01-01'
+     	dateStart: '1900/01/01',
+     	dateEnd: '2000/01/01',
+     	dateDefault: '1990/01/01'
      });
 });  
 ```
