@@ -2,67 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>dateCascade的demo</title>
-    <script src="http://g.tbcdn.cn/??kissy/k/1.4.2/seed.js" charset="utf-8"></script>
-<script>var S = KISSY;S.config({packages:[{name:"kg",path:"http://g.tbcdn.cn/kg/",charset:"utf-8",ignorePackageNameInUri:true}]});if (S.Config.debug){var srcPath = "../";S.config({packages:[{name:"kg/datecascade/2.0.0",path:srcPath,charset:"utf-8",ignorePackageNameInUri:true}]});}</script></head>
+    <title>Datecascade的demo</title>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.2/seed-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="http://g.tbcdn.cn/kissy/k/1.3.0/css/dpl/base-min.css">
+</head>
 <body>
-<style>
-body{padding:20px;font:12px/1.5 verdana,"microsoft yahei","\5FAE\8F6F\96C5\9ED1";}
-div{padding-left:20px;}
-select{margin-right:5px;}
-pre {border-left:4px solid gray;padding-left:10px;background:#eee;}
-pre code {font-size:0.8125em;line-height:1.4em;padding:0px;margin-top:3px;margin-bottom:1px;font-family:Consolas,Inconsolata,'Bitstream Vera Sans Mono',Menlo, Monaco,'Andale Mono','Courier New',monospace;}
-hr{border-color:#ccc;margin:20px 0;}
-h3{height:30px;line-height:30px;}
-em{color:#D14;font-weight:700;}
-input{border:1px solid #ccc;height:20px;width:2.0.0px;margin:5px 10px;}
-</style>
-<h2>日期级联组件</h2>
-<hr>
-<div>
-	<label>出生日期: </label>
-	<select id="year"> </select>年
-	<select id="month"> </select>月
-	<select id="day"> </select>日
-	<pre>
-	
-	KISSY.use('kg/dateCascade/2.0.0/index', function (S, DateCascade) {
-		var dc = new DateCascade({
-	    	nodeYear: '#year',
-	    	nodeMonth: '#month',
-	     	nodeDay: '#day',
-	     	dateStart: '2.0.00/02.0.01',
-	     	dateEnd: '2000/02.0.01',
-	     	dateDefault: '1990/02.0.01'
-	     });
-	});  
-	</pre>
-</div>
-<hr>
-<h3>事件</h3>
-<div id="testEvent">
-	<ul>
-		<li><em>change</em> : <label>更新前</label><input id="oldDate"><label>更新后</label><input id="newDate"></li>
-	</ul>
-</div>
-<hr>
-<h3>方法</h3>
-<div id="testFunction">
-	<ul>
-		<li><em>getDate</em> : <button id="testDate">日期</button><input id="textDate"/></li>
-		<li><em>getYear</em> : <button id="testYear">年</button><input id="textYear"/></li>
-		<li><em>getMonth</em> : <button id="testMonth">月</button><input id="textMonth"/></li>
-		<li><em>getDay</em> : <button id="testDay">日</button><input id="textDay"/></li>
-	</ul>
-</div>
+<h2>Datecascade的demo</h2>
+
 <script>
     var S = KISSY;
+    S.config({
+        packages:[
+            {
+                name:"kg",
+                path:"http://g.tbcdn.cn/kg/",
+                charset:"utf-8",
+                ignorePackageNameInUri:true
+            }
+        ]
+    });
+
     if (S.Config.debug) {
-        var srcPath = "../../../";
+        var srcPath = "../";
         S.config({
             packages:[
                 {
-                    name:"gallery-back",
+                    name:"kg/datecascade/2.0.0",
                     path:srcPath,
                     charset:"utf-8",
                     ignorePackageNameInUri:true
@@ -71,31 +36,8 @@ input{border:1px solid #ccc;height:20px;width:2.0.0px;margin:5px 10px;}
         });
     }
 
-    S.use('dom, event, kg/dateCascade/2.0.0/index', function (S, DOM, Event, DateCascade) {
-  		var dc = new DateCascade({
-  			nodeYear: '#year',
-  	    	nodeMonth: '#month',
-  	     	nodeDay: '#day',
-	     	dateStart: '2.0.00/02.0.01',
-	     	dateEnd: '2000/02.0.01',
-	     	dateDefault: '1990/02.0.01'
-     	});
-     	dc.on('change', function(e) {
-     		DOM.val(DOM.get('#oldDate'), e.oldDate);
-     		DOM.val(DOM.get('#newDate'), e.newDate);
-     	});
-     	Event.on(DOM.query('#testDate'), 'click', function() {
-     		DOM.val(DOM.get('#textDate'), dc.getDate());
-     	});
-     	Event.on(DOM.query('#testYear'), 'click', function() {
-     		DOM.val(DOM.get('#textYear'), dc.getYear());
-     	});
-     	Event.on(DOM.query('#testMonth'), 'click', function() {
-     		DOM.val(DOM.get('#textMonth'), dc.getMonth());
-     	});
-     	Event.on(DOM.query('#testDay'), 'click', function() {
-     		DOM.val(DOM.get('#textDay'), dc.getDay());
-     	});
+    S.use('kg/datecascade/2.0.0/index', function (S, Datecascade) {
+          new Datecascade();
     })
 </script>
 </body>
